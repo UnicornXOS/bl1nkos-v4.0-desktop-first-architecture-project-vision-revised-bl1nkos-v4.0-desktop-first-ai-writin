@@ -1,0 +1,27 @@
+[package]
+name = "bl1nk-os"
+version = "4.0.0"
+edition = "2021"
+
+[dependencies]
+tauri = { version = "2", features = ["shell-open", "global-shortcut", "fs-all"] }
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+pmcp = "1.10"
+agentclientprotocol = "1.10"
+rocket = { version = "0.5", features = ["json"] }
+mmdr = "1.10"
+clap = { version = "4", features = ["derive"] }
+tracing = "0.1"
+tracing-subscriber = "0.3"
+dirs = "5"
+chrono = { version = "0.4", features = ["serde"] }
+
+[build-dependencies]
+tauri-build = "2"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
